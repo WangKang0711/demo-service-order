@@ -1,0 +1,22 @@
+server:
+  port: 8802
+  
+spring:
+  application:
+    name: service-order
+  zipkin:
+    base-url: http://172.16.2.176:9411
+  sleuth:
+    sampler:
+      percentage: 1
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.16.2.176:8761/eureka/
+  instance:
+    status-page-url: http://172.16.2.176:${server.port}/swagger-ui.html
+    
+feign:
+  hystrix:
+    enabled: true
