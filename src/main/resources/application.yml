@@ -5,7 +5,7 @@ spring:
   application:
     name: service-order
   zipkin:
-    base-url: http://172.16.2.176:9411
+    base-url: http://peer1:9411
   sleuth:
     sampler:
       percentage: 1
@@ -13,10 +13,10 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://172.16.2.176:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/
   instance:
     prefer-ip-address: true
-    status-page-url: http://172.16.2.176:${server.port}/swagger-ui.html
+    status-page-url: http://peer1:${server.port}/swagger-ui.html
     
 feign:
   hystrix:
